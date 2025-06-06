@@ -7,6 +7,7 @@ import CreateHotel from './pages/CreateHotel';
 import HotelEdit from './pages/HotelEdit';
 import AssignHotel from './pages/HotelAssing';
 
+// Componentes
 function App() {
   return (
     <Router>
