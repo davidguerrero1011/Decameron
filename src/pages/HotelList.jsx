@@ -8,7 +8,7 @@ const HotelList = () => {
     const [hotels, setHotels] = useState([]);
     const navigate = useNavigate();
     const fieldsHeader = ['Nombre', 'Cuartos', 'Dirección', 'NIT', 'Ciudad', 'Estado', 'Opciones'];
-    const url = `https://surprising-quietude.up.railway.app/api/hotels`;
+    const url = `https://hoteles-decameron-production.up.railway.app`;
 
     useEffect(() => {
         fetchHotels();
