@@ -24,7 +24,7 @@ const CreateHotel = () => {
     }, []);
 
     const navigate = useNavigate();
-    const url = `http://localhost:8000/api/hotels`;
+    const url = `https://surprising-quietude.up.railway.app/api/hotels`;
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;

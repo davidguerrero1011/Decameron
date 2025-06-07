@@ -13,7 +13,7 @@ const FormularioHotel = () => {
   const { id } = useParams();
   const [amount, setCantidad] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
-  const url = `http://localhost:8000/api/hotels`;
+  const url = `https://surprising-quietude.up.railway.app/api/hotels`;
 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');

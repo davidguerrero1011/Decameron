@@ -24,7 +24,7 @@ const HotelEdit = () => {
     const [saving, setSaving] = useState(false);
     const { id } = useParams();
     const navigate = useNavigate();
-    const url = `http://localhost:8000/api/hotels`;
+    const url = `https://surprising-quietude.up.railway.app/api/hotels`;
 
     useEffect(() => {
         const fetchHotel = async () => {
