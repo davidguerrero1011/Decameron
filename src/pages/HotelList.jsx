@@ -36,10 +36,8 @@ const HotelList = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-
                     const response = await axios.delete(`${url}/destroy/${id}`);
                     Swal.fire(`${response.data.message}`, "", response.data.state == 200 ? "success" : "error");
-
                     if (response.data.state == 200) {
                         setTimeout(() => {
                             navigate('/hotels');
@@ -48,7 +46,6 @@ const HotelList = () => {
                 } catch (error) {
                     console.log(error);
                 }
-
             } else if (result.isDenied) {
                 Swal.fire("Cambios no guardados", "", "info");
             }
@@ -65,46 +62,42 @@ const HotelList = () => {
             <button onClick={() => navigate('/hotels/create')} className="btn btn-primary mb-3">Crear Hotel</button>
 
             <div className="table-responsive mt-3">
-                <table className="table table-dark table-striped-columns custom-table">
-                    <thead className="table-light text-dark">
-                        <tr>
-                            {fieldsHeader.map((field, index) => (
-                                <th key={index}>{field}</th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {hotels.length > 0 ? (
-                            hotels.map((hotel) => (
-                                <tr key={hotel.id}>
-                                    <td>{hotel.name}</td>
-                                    <td>{hotel.rooms}</td>
-                                    <td>{hotel.address}</td>
-                                    <td>{hotel.nit}</td>
-                                    <td>{hotel.city?.name || 'Sin ciudad'}</td>
-                                    <td>{hotel.status ? 'Activo' : 'Inactivo'}</td>
-                                    <td>
-                                        <div className="d-flex gap-2 mx-2">
-                                            <button onClick={() => handleEdit(hotel.id)} className="btn btn-warning btn-sm">
-                                                Editar
-                                            </button>
-                                            <button onClick={() => handleDelete(hotel.id)} className="btn btn-danger btn-sm">
-                                                Eliminar
-                                            </button>
-                                            <button onClick={() => handleAssign(hotel.id)} className="btn btn-info btn-sm">
-                                                Asignar
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))
-                        ) : (
+                <div className="table-wrapper">
+                    <table className="table table-dark table-striped-columns table-bordered custom-table">
+                        <thead className="table-light text-dark">
                             <tr>
-                                <td colSpan="7">No hay hoteles registrados.</td>
+                                {fieldsHeader.map((field, index) => (
+                                    <th key={index}>{field}</th>
+                                ))}
                             </tr>
-                        )}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {hotels.length > 0 ? (
+                                hotels.map((hotel) => (
+                                    <tr key={hotel.id}>
+                                        <td data-label="Nombre">{hotel.name}</td>
+                                        <td data-label="Cuartos">{hotel.rooms}</td>
+                                        <td data-label="Dirección">{hotel.address}</td>
+                                        <td data-label="NIT">{hotel.nit}</td>
+                                        <td data-label="Ciudad">{hotel.city?.name || 'Sin ciudad'}</td>
+                                        <td data-label="Estado">{hotel.status ? 'Activo' : 'Inactivo'}</td>
+                                        <td data-label="Opciones">
+                                            <div className="d-flex gap-2 px-1">
+                                                <button onClick={() => handleEdit(hotel.id)} className="btn btn-warning btn-sm">Editar</button>
+                                                <button onClick={() => handleDelete(hotel.id)} className="btn btn-danger btn-sm">Eliminar</button>
+                                                <button onClick={() => handleAssign(hotel.id)} className="btn btn-info btn-sm">Asignar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="7">No hay hoteles registrados.</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
