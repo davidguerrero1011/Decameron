@@ -81,7 +81,7 @@ const HotelList = () => {
                                         <td data-label="NIT">{hotel.nit}</td>
                                         <td data-label="Ciudad">{hotel.city?.name || 'Sin ciudad'}</td>
                                         <td data-label="Estado">{hotel.status ? 'Activo' : 'Inactivo'}</td>
-                                        <td data-label="Opciones">
+                                        <td data-label="">
                                             <div className="d-flex gap-2 px-1">
                                                 <button onClick={() => handleEdit(hotel.id)} className="btn btn-warning btn-sm">Editar</button>
                                                 <button onClick={() => handleDelete(hotel.id)} className="btn btn-danger btn-sm">Eliminar</button>
