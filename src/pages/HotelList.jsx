@@ -8,7 +8,7 @@ const HotelList = () => {
     const [hotels, setHotels] = useState([]);
     const navigate = useNavigate();
     const fieldsHeader = ['Nombre', 'Cuartos', 'Dirección', 'NIT', 'Ciudad', 'Estado', 'Opciones'];
-    const url = `https://hoteles-decameron-production.up.railway.app`;
+    const url = `https://hoteles-decameron-production.up.railway.app/api/hotels`;
 
     useEffect(() => {
         fetchHotels();

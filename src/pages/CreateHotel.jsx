@@ -24,7 +24,7 @@ const CreateHotel = () => {
     }, []);
 
     const navigate = useNavigate();
-    const url = `https://hoteles-decameron-production.up.railway.app`;
+    const url = `https://hoteles-decameron-production.up.railway.app/api/hotels`;
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;

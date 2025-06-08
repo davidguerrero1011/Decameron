@@ -24,7 +24,7 @@ const HotelEdit = () => {
     const [saving, setSaving] = useState(false);
     const { id } = useParams();
     const navigate = useNavigate();
-    const url = `https://hoteles-decameron-production.up.railway.app`;
+    const url = `https://hoteles-decameron-production.up.railway.app/api/hotels`;
 
     useEffect(() => {
         const fetchHotel = async () => {
