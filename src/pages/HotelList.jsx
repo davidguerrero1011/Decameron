@@ -75,12 +75,12 @@ const HotelList = () => {
                             {hotels.length > 0 ? (
                                 hotels.map((hotel) => (
                                     <tr key={hotel.id}>
-                                        <td data-label="Nombre">{hotel.name}</td>
-                                        <td data-label="Cuartos">{hotel.rooms}</td>
-                                        <td data-label="Dirección">{hotel.address}</td>
-                                        <td data-label="NIT">{hotel.nit}</td>
-                                        <td data-label="Ciudad">{hotel.city?.name || 'Sin ciudad'}</td>
-                                        <td data-label="Estado">{hotel.status ? 'Activo' : 'Inactivo'}</td>
+                                        <td data-label="">{hotel.name}</td>
+                                        <td data-label="">{hotel.rooms}</td>
+                                        <td data-label="">{hotel.address}</td>
+                                        <td data-label="">{hotel.nit}</td>
+                                        <td data-label="">{hotel.city?.name || 'Sin ciudad'}</td>
+                                        <td data-label="">{hotel.status ? 'Activo' : 'Inactivo'}</td>
                                         <td data-label="">
                                             <div className="d-flex gap-2 px-1">
                                                 <button onClick={() => handleEdit(hotel.id)} className="btn btn-warning btn-sm">Editar</button>

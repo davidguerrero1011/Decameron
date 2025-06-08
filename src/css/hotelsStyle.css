@@ -138,7 +138,7 @@ button:focus {
 
     td {
         padding: 10px;
-        text-align: right;
+        text-align: center;
         position: relative;
         border: none;
         border-bottom: 1px solid #444;
@@ -240,7 +240,7 @@ button:focus {
     }
 
     .custom-table td {
-        text-align: right;
+        text-align: center;
         padding-left: 50%;
         position: relative;
         font-size: 0.9rem;
