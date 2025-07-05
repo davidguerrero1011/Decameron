@@ -9,7 +9,8 @@ const HotelList = () => {
     const navigate = useNavigate();
     const fieldsHeader = ['Nombre', 'NIT', 'Dirección', 'Ciudad', 'Cuartos', 'Correo', 'Telefono', 'Opciones'];
 
-    const url = `http://127.0.0.1:8000/api/hotels`;
+    // const url = `http://127.0.0.1:8000/api/hotels`;
+    const url = `http://3.148.167.245/api/hotels`;
 
     useEffect(() => {
         fetchHotels();

@@ -26,7 +26,8 @@ const CreateHotel = () => {
   }, []);
 
   const navigate = useNavigate();
-  const url = `http://127.0.0.1:8000/api/hotels`;
+  // const url = `http://127.0.0.1:8000/api/hotels`;
+  const url = `http://3.148.167.245/api/hotels`;
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;

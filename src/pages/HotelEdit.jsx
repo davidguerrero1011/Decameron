@@ -24,7 +24,8 @@ const HotelEdit = () => {
   const [saving, setSaving] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-  const url = `http://127.0.0.1:8000/api/hotels`;
+  // const url = `http://127.0.0.1:8000/api/hotels`;
+  const url = `http://3.148.167.245/api/hotels`;
 
   useEffect(() => {
     const fetchHotel = async () => {

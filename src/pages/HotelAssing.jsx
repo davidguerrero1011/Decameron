@@ -13,7 +13,8 @@ const FormularioHotel = () => {
   const { id } = useParams();
   const [amount, setCantidad] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
-  const url = `http://127.0.0.1:8000/api/hotels`;
+  // const url = `http://127.0.0.1:8000/api/hotels`;
+  const url = `http://3.148.167.245/api/hotels`;
 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
