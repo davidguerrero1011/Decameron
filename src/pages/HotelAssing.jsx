@@ -13,7 +13,7 @@ const FormularioHotel = () => {
   const { id } = useParams();
   const [amount, setCantidad] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
-  const url = `https://hoteles-decameron-production.up.railway.app/api/hotels`;
+  const url = `http://127.0.0.1:8000/api/hotels`;
 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -43,14 +43,15 @@ const FormularioHotel = () => {
       };
 
       const response = await axios.post(`${url}/assign`, payload);
+
       setSuccessMessage(response.data.message || 'Los cuartos del hotel fueron configurados exitosamente.');
       setErrorMessage('');
       setValidationErrors([]);
 
-      if (response.data.state == 200) {
+      if (response.status == 200 && response.data.message == "La configuracion de su hotel fue creada con exito") {
         setTimeout(() => {
-          navigate('/hotels');
-        }, 800);
+          navigate('/');
+        }, 2000);
       }
 
     } catch (error) {
@@ -79,7 +80,9 @@ const FormularioHotel = () => {
   const listRoomTypes = async () => {
     try {
       const response = await axios.get(`${url}/room-types`);
-      setCategories(response.data.data);
+      console.log(response);
+      
+      setCategories(response.data[0]);
     } catch (error) {
       console.log(error);
     }
@@ -88,8 +91,8 @@ const FormularioHotel = () => {
   const listAccommodationTypes = async (roomTypeId) => {
     try {
       const response = await axios.get(`${url}/accommodation-types/${roomTypeId}`);
-      if (response.data.state == 200) {
-        setAccommodationList(response.data.data);
+      if (response.status == 200) {
+        setAccommodationList(response.data[0]);
       }
     } catch (error) {
       console.log(error);
@@ -146,7 +149,7 @@ const FormularioHotel = () => {
           </div>
 
           <div className="col-md-6">
-            <label htmlFor="item" className="form-label fw-semibold">Items relacionados</label>
+            <label htmlFor="item" className="form-label fw-semibold">Acomodaciones</label>
             <div className="input-group">
               <select
                 id="item"
